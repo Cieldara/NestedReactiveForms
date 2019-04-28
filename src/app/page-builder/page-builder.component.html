@@ -1,0 +1,40 @@
+<div [formGroup]="formGroup">
+  <mat-form-field *ngIf="formGroup.controls.type.value !== 'Initial'">
+    <mat-select placeholder="Select Type" formControlName="type" (selectionChange)="clearChildren()">
+      <mat-option *ngFor="let type of types" [value]="type">
+        {{ type }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <ng-container [ngSwitch]="formGroup.controls.type.value">
+    <div *ngSwitchCase="'Paragraphe'">
+      <mat-form-field>
+        <input matInput placeholder="Paragraphe texte" formControlName="value">
+      </mat-form-field>
+    </div>
+    <div *ngSwitchCase="'Image'">
+      <p>{{formGroup.controls.value.value}}</p>
+      <button mat-raised-button (click)="loadImage()">Load image</button>
+    </div>
+    <div *ngSwitchCase="'Section'">
+      <mat-form-field>
+        <input matInput placeholder="Titre de la section" formControlName="value">
+      </mat-form-field>
+    </div>
+    <div *ngSwitchDefault></div>
+  </ng-container>
+  <div formArrayName="elements">
+    <div class="elt" *ngFor="let element of formGroup.controls.elements.controls; let i = index;">
+      <div [formGroupName]="i" class="container">
+        <button mat-raised-button (click)="removeElementsFormArray(i)">Remove
+          element</button>
+        <app-page-builder [formGroup]="element" [imbricationLevel]="imbricationLevel"></app-page-builder>
+      </div>
+    </div>
+  </div>
+
+  <button mat-raised-button (click)="addElementToArray()"
+    *ngIf="formGroup.controls.type.value === 'Initial' || formGroup.controls.type.value === 'Section' || formGroup.controls.type.value === 'Ligne'">Add
+    element</button>
+</div>
