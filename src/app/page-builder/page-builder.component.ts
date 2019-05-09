@@ -33,7 +33,7 @@ export class PageBuilderComponent implements OnInit {
   createElement() {
     return this.fb.group({
       type: ['Paragraphe', Validators.required],
-      value: [],
+      value: [,Validators.required],
       elements: this.fb.array([])
     });
   }

@@ -2,11 +2,11 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-first-page',
+  templateUrl: './first-page.component.html',
+  styleUrls: ['./first-page.component.scss']
 })
-export class AppComponent implements OnInit {
+export class FirstPageComponent implements OnInit {
   title = 'Horizon';
   expertiseForm: FormGroup;
   imbricationLevel = 0;
