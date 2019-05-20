@@ -14,6 +14,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { SecondPageComponent } from './second-page/second-page.component';
 import { FirstPageComponent } from './first-page/first-page.component';
+import { DashboardLayoutComponent } from './components/dashboard/dashboard-layout.component';
+import { DashboardLayoutItemDirective } from './directives/dashboard-layout-item.directive';
+import { DashboardLayoutService } from './services/dashboard-layout.service';
+import { Example1Component } from './components/example1/example1.component';
+import { GridsterModule } from 'angular-gridster2';
+import { Example2Component } from './components/example2/example2.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +27,11 @@ import { FirstPageComponent } from './first-page/first-page.component';
     ChildComponent,
     PageBuilderComponent,
     FirstPageComponent,
-    SecondPageComponent
+    SecondPageComponent,
+    DashboardLayoutComponent,
+    DashboardLayoutItemDirective,
+    Example1Component,
+    Example2Component
   ],
   imports: [
     BrowserAnimationsModule,
@@ -32,10 +42,12 @@ import { FirstPageComponent } from './first-page/first-page.component';
     MatInputModule,
     MatButtonModule,
     MatSidenavModule,
-    MatIconModule
+    MatIconModule,
+    GridsterModule
 
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [DashboardLayoutService],
+  bootstrap: [AppComponent],
+  entryComponents: [Example1Component, Example2Component],
 })
 export class AppModule { }

@@ -1,0 +1,12 @@
+<div class="toolbar">
+    <button (click)="serial()">Save components</button>
+    <div class=" draggable" draggable="true" (dragstart)="start($event,'example1')" #comp>Example 1</div>
+    <div class="draggable" draggable="true" (dragstart)="start($event,'example2')" #comp>Example 2</div>
+</div>
+<gridster [options]="options" (dragover)="prevent($event)" (drop)="onDrop($event)">
+    <gridster-item *ngFor=" let item of layout; let i = index;" [item]="item">
+        <ng-container appLayoutItem [componentRef]="layoutService.getComponentRef(item.id)"
+            [(configuration)]="components[i].configuration"></ng-container>
+        <button (click)="layoutService.deleteItem(item.id)">Delete Item</button>
+    </gridster-item>
+</gridster>
