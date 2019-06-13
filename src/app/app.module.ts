@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChildComponent } from './child/child.component';
 import { PageBuilderComponent } from './page-builder/page-builder.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,6 +20,8 @@ import { DashboardLayoutService } from './services/dashboard-layout.service';
 import { Example1Component } from './components/example1/example1.component';
 import { GridsterModule } from 'angular-gridster2';
 import { Example2Component } from './components/example2/example2.component';
+import { VideoComponent } from './components/video/video.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { Example2Component } from './components/example2/example2.component';
     DashboardLayoutComponent,
     DashboardLayoutItemDirective,
     Example1Component,
-    Example2Component
+    Example2Component,
+    VideoComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -43,7 +47,8 @@ import { Example2Component } from './components/example2/example2.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    GridsterModule
+    GridsterModule,
+    FormsModule,
 
   ],
   providers: [DashboardLayoutService],

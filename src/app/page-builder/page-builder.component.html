@@ -24,8 +24,10 @@
     </div>
     <div *ngSwitchDefault></div>
   </ng-container>
+
+  
   <div formArrayName="elements">
-    <div class="elt" *ngFor="let element of formGroup.controls.elements.controls; let i = index;">
+    <div class="elt" *ngFor="let element of formGroup.controls.elements; let i = index;">
       <div [formGroupName]="i" class="container">
         <button mat-raised-button (click)="removeElementsFormArray(i)">Remove
           element</button>
@@ -33,6 +35,7 @@
       </div>
     </div>
   </div>
+  
 
   <button mat-raised-button (click)="addElementToArray()"
     *ngIf="formGroup.controls.type.value === 'Initial' || formGroup.controls.type.value === 'Section' || formGroup.controls.type.value === 'Ligne'">Add

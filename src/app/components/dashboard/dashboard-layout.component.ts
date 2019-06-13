@@ -21,7 +21,8 @@ export class DashboardLayoutComponent implements OnInit {
         return this.layoutService.components;
     }
 
-    start(event, widgetIdentifier) {
+    start(event, widgetIdentifier, x) {
+        console.log(x);
         event.dataTransfer.setData('widgetIdentifier', widgetIdentifier);
     }
 
