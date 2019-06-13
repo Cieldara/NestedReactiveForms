@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-video',
@@ -7,9 +8,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class VideoComponent implements OnInit {
 
-    constructor() { }
+    @Input() videoID: string;
+    fullVideoURL;
+
+    constructor(private sanitizer: DomSanitizer) { }
 
     ngOnInit() {
+        this.fullVideoURL = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + this.videoID);
     }
 
 }
