@@ -1,9 +1,13 @@
 <div class="carousel-wrapper">
     <div class="video-div">
-        <app-video [videoID]="'yRWY9UogMJA'"></app-video>
+        <app-video *ngIf="video" [videoID]="'yRWY9UogMJA'"></app-video>
+        <div class="img-wrapper" *ngIf="!video">
+            <img class="my-img" src="https://pic.clubic.com/v1/images/1170012/raw">
+        </div>
+
     </div>
     <div class="infos-div">
-        <h3>TITRE</h3>
+        <h3 (click)="switch()">TITRE</h3>
         <p class="description">
             LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOONG
             LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOONG

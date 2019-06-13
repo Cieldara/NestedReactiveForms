@@ -7,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarouselComponent implements OnInit {
 
+    video = true;
 
     constructor() { }
 
     ngOnInit() {
+    }
+
+    switch() {
+        this.video = !this.video;
     }
 
 }
